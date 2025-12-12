@@ -4,6 +4,7 @@ from appium.options.android import UiAutomator2Options
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+# from utils.gesture_utils import GestureUtils
 
 def get_data():
     return {"valid_phoneNumber":"9876543210","invalid_phoneNumber":"987654321","valid_otp":"0","invalid":"1"}
@@ -21,6 +22,7 @@ def setup_driver():
     return driver
 
 def login_as_streamer(driver):
+    global wait
     wait = WebDriverWait(driver,20)
     data = get_data()
     valid_phone_number = data["valid_phoneNumber"]
@@ -56,50 +58,40 @@ def login_as_streamer(driver):
 # allow.camera_audio_permissions()
 # time.sleep(5)
 
-# driver.find_element(AppiumBy.ID, 'in.vitok.dev:id/btnSwitch').click()
-
-# gesture = GestureUtils(driver)
-
-# scrolled = gesture.scroll_till_text("Last Week")
-# scrolled.click()
-# print("Scroll done")
-# time.sleep(2)
-
-# gesture.swipe_down(4)
-# print("swipe down done")
-# time.sleep(2)
-
-# gesture.swipe_Up(4)
-# print("swipe up done")
-# time.sleep(3)
-
-# wait.until(
-#     EC.element_to_be_clickable(
-#         (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("Jeet")')
-#     )
-# ).click()
-# time.sleep(5)
-
-# gesture.swipe_Left(1)
-# print("swipe left done")
-# time.sleep(10)
-
-# gesture.swipe_Right(1)
-# print("swipe Right done")
-# driver.press_keycode(4)
-# wait.until(EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().text("Go Live")'))).click()
-# time.sleep(5)
-# wait.until(EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().text("Go Live")'))).click()
-
 
 def streamer_flow():
     driver = setup_driver()
-    try:
-        login_as_streamer(driver)
-        # You can add your gesture and go-live steps here
-    finally:
-        driver.quit()
-        print("Driver closed")
+    login_as_streamer(driver)
+    driver.find_element(AppiumBy.ID, 'in.vitok.dev:id/btnSwitch').click()
 
+    # gesture = GestureUtils(driver)
+    # scrolled = gesture.scroll_till_text("Last Week")
+    # scrolled.click()
+    # print("Scroll done")
+    # time.sleep(2)
+
+    # gesture.swipe_down(4)
+    # print("swipe down done")
+    # time.sleep(2)
+
+    # gesture.swipe_Up(4)
+    # print("swipe up done")
+    # time.sleep(3)
+    # wait.until(EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("Jeet")'))).click()
+    
+    # gesture.swipe_Left(1)
+    # print("swipe left done")
+    # time.sleep(10)
+
+    # gesture.swipe_Right(1)
+    # print("swipe Right done")
+    # driver.press_keycode(4)
+    
+    wait.until(EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().text("Go Live")'))).click()
+    time.sleep(5)
+    wait.until(EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().text("Go Live")'))).click()
+    print("Streamer has gone Live")
+
+    
 if __name__ == "__main__":
     streamer_flow()
