@@ -1,6 +1,6 @@
 import time
 from appium.webdriver.common.appiumby import AppiumBy
-from locators.app_permissions import AppPermissions
+from permissions.app_permissions import AppPermissions
 
 class LoginPass:
     
