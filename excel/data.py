@@ -12,6 +12,18 @@ def get_data():
         dataList = []
         for j in range(1, totalcols +1):
             data = sheet.cell(row=i,column =j).value
-            dataList.insert(j,data)
-        mainList.insert(i,dataList)
+            dataList.append(j,data)
+        mainList.append(i,dataList)
     return mainList
+
+def login_data():
+    data = get_data()
+    valid_data = data[0]
+    invalid_data = data[1]
+    return {
+        "valid_phone": valid_data[0],
+        "valid_otp": valid_data[1],
+        "invalid_phone": invalid_data[0],
+        "invalid_otp": invalid_data[1]
+    }
+    

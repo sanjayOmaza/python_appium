@@ -3,7 +3,7 @@ import pytest
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from excel.data import get_data
+from excel.data import login_data
 from permissions.app_permissions import AppPermissions
 from utils.gesture_utils import GestureUtils
 
@@ -11,14 +11,9 @@ def register_as_streamer(setup_driver):
     driver = setup_driver
     global wait,valid_phone_number,valid_otp  # this variables will be used through out the class and pass the data
     wait = WebDriverWait(driver,20)
-    data = get_data()
-    valid_data = data[0]
-    # invalid_data = data[1]
-    valid_phone_number = valid_data[0]
-    valid_otp = valid_data[1]
-    # invalid_phone_number = invalid_data[0]
-    # invalid_otp = invalid_data[1]
-
+    data = login_data()
+    valid_phone_number = data["valid_phone"]
+    valid_otp = data["valid_otp"]
     wait.until(EC.element_to_be_clickable((AppiumBy.ID,"in.vitok.dev:id/customer_id"))).send_keys(valid_phone_number)
     wait.until(EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().text("LOGIN AS STREAMER")'))).click()
     wait.until(EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().text("Send code via SMS")'))).click()
