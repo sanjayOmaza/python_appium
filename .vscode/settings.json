@@ -1,0 +1,16 @@
+{
+    "python.defaultInterpreterPath": "/Users/sanjay.sadashivam/python2/python_appium/venv/bin/python3",
+
+    "python.analysis.extraPaths": [
+        "/Users/sanjay.sadashivam/python2/python_appium/venv/lib/python3.14/site-packages",
+        "/Users/sanjay.sadashivam/python2/python_appium"
+    ],
+
+    "python.autoComplete.extraPaths": [
+        "/Users/sanjay.sadashivam/python2/python_appium/venv/lib/python3.14/site-packages"
+    ],
+
+    "python.analysis.indexing": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.languageServer": "Pylance"
+}
