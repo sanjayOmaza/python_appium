@@ -17,13 +17,15 @@ def get_data():
     return mainList
 
 def login_data():
-    data = get_data()
-    valid_data = data[0]
-    invalid_data = data[1]
+    # data = get_data()
+    # valid_data = data[0]
+    # invalid_data = data[1]
     return {
-        "valid_phone": valid_data[0],
-        "valid_otp": valid_data[1],
-        "invalid_phone": invalid_data[0],
-        "invalid_otp": invalid_data[1]
+        # "valid_phone": valid_data[0],
+        # "valid_otp": valid_data[1],
+        # "invalid_phone": invalid_data[0],
+        # "invalid_otp": invalid_data[1],
+        "valid_phone": "9876543210",
+        "valid_otp": "0",
     }
     

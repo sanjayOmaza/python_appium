@@ -3,6 +3,12 @@ from appium.options.android import UiAutomator2Options
 # from appium.webdriver.appium_service import AppiumService
 
 import pytest
+import sys
+import os
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 # @pytest.hookimpl(hookwrapper=True, tryfirst=True)
 # def pytest_runtest_makereport(item, call):
@@ -36,4 +42,3 @@ def setup_driver():
 #     driver = setup_driver
 #     if item.rep_call.failed:
 #         driver.get_screenshot_as_png()
-    
