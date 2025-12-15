@@ -27,5 +27,11 @@ def login_data():
         # "invalid_otp": invalid_data[1],
         "valid_phone": "9876543210",
         "valid_otp": "0",
+        "DOB_date":"8",
+        "DOB_month":"March",
+        "DOB_year":"2001",
+        "nick_name": "Testy",
+        "referral_code": "ZEZWLFW6"
+        
     }
     
